@@ -82,7 +82,17 @@ return dist;
 4.  Create a new source file <tt>area.cpp</tt> and implement the following function:
 
    ```c++
-   double computeArea(const Point &a, const Point &b, const Point &c);
+   double S;
+    double AB,BC,AC;
+    double area;
+    AB = sqrt(pow(a.getX()-b.getX(),2)+pow(a.getY()-b.getY(),2)+pow(a.getZ()-b.getZ(),2)); // claculates distance AB
+    BC = sqrt(pow(b.getX()-c.getX(),2)+pow(b.getY()-c.getY(),2)+pow(b.getZ()-c.getZ(),2)); // calculates distance BC
+    AC = sqrt(pow(a.getX()-c.getX(),2)+pow(a.getY()-c.getY(),2)+pow(a.getZ()-c.getZ(),2)); // calculates distance AC
+    S = (AB+BC+AC)/2;
+    area = sqrt(S*(S-AB)*(S-BC)*(S-AC)); // Heron's formula
+    cout<<fixed<<setprecision(2)<<area<<endl;
+    return area;
+};
    ```
 
    which takes by reference three constant <tt>Point</tt> objects, computes the area within the triangle defined by these points (hint: use [Heron's Formula](http://en.wikipedia.org/wiki/Heron%27s_formula)), and returns it as a double-precision floating point number.
