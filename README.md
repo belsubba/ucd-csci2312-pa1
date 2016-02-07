@@ -9,29 +9,32 @@ C++ lets us program with _objects_. We describe objects in C++ by declaring and 
 Here is a sample header file <tt>Point.h</tt> that describes an object that represents a point in two-dimensional Euclidean space:
 
 ```c++
-// A 2-dimensional point class!
+// A 3-dimensional point class!
 // Coordinates are double-precision floating point.
 class Point {
 
 private:
-    double x;
-    double y;
+    double __x, __y, __z; // co-ordinate __z added
+    
 
 public:
     // Constructors
-    Point();                      // default constructor
-    Point(double x, double y);    // two-argument constructor
+    Point():Point(0,0,0){};                     // default constructor
+    Point(double x, double y, double z):__x(x),__y(y),__z(z){};    // three-argument constructor
+    double distanceTo(const Point &point) const;  //Added member function
 
     // Destructor
-    ~Point();
+    ~Point(){};
 
     // Mutator methods
-    void setX(double newX);
-    void setY(double newY);
-
-    // Accessor methods
-    double getX() const;
-    double getY() const;
+    inline void setX(double newX){__x = newX;}
+    inline void setY(double newY){__y = newY;}
+    inline void setZ(double newZ){__z = newZ;}
+    
+  // Accessor methods
+    inline double getX() const {return __x;}
+    inline double getY() const {return __y:}
+    inline double getz() const {return __z;}
 
 };
 ```
@@ -39,8 +42,18 @@ public:
 We can _instantiate_, or create an instance of, our class anywhere in the rest of our code by calling any of the constructors we have defined:
 
 ```
-Point myPoint;            // Calls Point::Point(). Notice the lack of parentheses!
-Point myOtherPoint(5, 3); // Calls two-argument constructor Point::Point(double, double). Notice auto type conversion!
+#include "Point.h"
+#include <iostream>
+#include <cmath>
+#include <iomanip>
+
+using namespace std;
+//Public memberfunction definition
+double Point:: distanceTo(const Point &other) const {
+double dist;
+Point p;            // Calls Point::Point(). Notice the lack of parentheses!
+dist = sqrt(pow(other.getX()-p.getX()),2) + pow(other.getY()-p.getY()),2) +pow(other.getZ()-p.getZ()),2)); // dist formula in 3D
+return dist;
 ```
 
 ### Your Task
@@ -60,6 +73,9 @@ Point myOtherPoint(5, 3); // Calls two-argument constructor Point::Point(double,
    (This means, "Include the C math library header.") And then you are all set. Remember to always include your header files, for example,
    ```c++
    #include "Point.h"
+   #include <cmath>
+   #include <iostream>
+   #include <iomanip>
    ```
    __after__ all the Standard Library headers.
 
