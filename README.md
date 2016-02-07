@@ -56,13 +56,12 @@ return dist;
 ```
 
    ```c++
+   //Area.cpp
    #include "Point.h"
    #include <cmath>
    #include <iostream>
    #include <iomanip>
-   ```
-
-   ```c++
+   
    double S;
     double AB,BC,AC;
     double area;
@@ -73,7 +72,6 @@ return dist;
     area = sqrt(S*(S-AB)*(S-BC)*(S-AC)); // Heron's formula
     cout<<fixed<<setprecision(2)<<area<<endl;
     return area;
-};
    ```
 
   
@@ -98,9 +96,7 @@ add_executable(ucd_csci2312_pa1 ${SOURCE_FILES})
 ```
 
   
-   ```
-./ucd_csci2312_pa1
-```
+  
 
   
 
