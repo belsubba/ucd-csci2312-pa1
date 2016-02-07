@@ -66,10 +66,6 @@ return dist;
 
    If you find a square-root function useful for this, the C standard library has one, called <tt>sqrt()</tt>. The function takes a double and returns another double.
 
-   To use it in your C++ code, you write
-   ```c++
-   #include <cmath>
-   ```
    (This means, "Include the C math library header.") And then you are all set. Remember to always include your header files, for example,
    ```c++
    #include "Point.h"
@@ -80,7 +76,7 @@ return dist;
    __after__ all the Standard Library headers.
 
 4.  Create a new source file <tt>area.cpp</tt> and implement the following function:
-
+#Area.cpp file
    ```c++
    double S;
     double AB,BC,AC;
